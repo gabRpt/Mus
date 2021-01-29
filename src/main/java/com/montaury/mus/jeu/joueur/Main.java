@@ -19,10 +19,7 @@ public class Main {
   }
 
   private final List<Carte> cartes;
-
-
-
-  //Test
+  
   Main(List<Carte> cartes) {
     this.cartes = cartes;
   }
