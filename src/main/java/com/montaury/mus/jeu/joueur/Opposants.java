@@ -7,9 +7,9 @@ public class Opposants {
   private Joueur joueurEsku;
   private Joueur joueurZaku;
 
-  public Opposants(Joueur joueurEsku, Joueur joueurZaku) {
-    this.joueurEsku = joueurEsku;
-    this.joueurZaku = joueurZaku;
+  public Opposants(Equipe equipeJoueurEsku, Equipe equipeJoueurZaku) {
+    this.joueurEsku = equipeJoueurEsku.joueur;
+    this.joueurZaku = equipeJoueurZaku.joueur;
   }
 
   public void tourner() {

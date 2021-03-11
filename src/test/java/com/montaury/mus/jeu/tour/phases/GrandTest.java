@@ -1,6 +1,7 @@
 package com.montaury.mus.jeu.tour.phases;
 
 import com.montaury.mus.jeu.carte.Carte;
+import com.montaury.mus.jeu.joueur.Equipe;
 import com.montaury.mus.jeu.joueur.Joueur;
 import com.montaury.mus.jeu.joueur.Opposants;
 import org.junit.jupiter.api.Test;
@@ -24,7 +25,7 @@ class GrandTest {
     Joueur joueurEsku = unJoueurAvec(main(Carte.AS_BATON, Carte.CINQ_PIECE, Carte.SEPT_BATON, Carte.SIX_COUPE));
     Joueur joueurZaku = unJoueurAvec(main(Carte.DEUX_BATON, Carte.TROIS_PIECE, Carte.CAVALIER_BATON, Carte.AS_PIECE));
 
-    Joueur vainqueur = new Grand().meilleurParmi(new Opposants(joueurEsku, joueurZaku));
+    Joueur vainqueur = new Grand().meilleurParmi(new Opposants(new Equipe(joueurEsku), new Equipe(joueurZaku)));
 
     assertThat(vainqueur).isEqualTo(joueurZaku);
   }
@@ -34,7 +35,7 @@ class GrandTest {
     Joueur joueurEsku = unJoueurAvec(main(Carte.AS_BATON, Carte.CINQ_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE));
     Joueur joueurZaku = unJoueurAvec(main(Carte.DEUX_BATON, Carte.VALET_PIECE, Carte.QUATRE_BATON, Carte.SEPT_PIECE));
 
-    Joueur vainqueur = new Grand().meilleurParmi(new Opposants(joueurEsku, joueurZaku));
+    Joueur vainqueur = new Grand().meilleurParmi(new Opposants(new Equipe(joueurEsku), new Equipe(joueurZaku)));
 
     assertThat(vainqueur).isEqualTo(joueurZaku);
   }

@@ -1,9 +1,6 @@
 package com.montaury.mus.jeu;
 
-import com.montaury.mus.jeu.joueur.AffichageEvenementsDeJeu;
-import com.montaury.mus.jeu.joueur.InterfaceJoueur;
-import com.montaury.mus.jeu.joueur.Joueur;
-import com.montaury.mus.jeu.joueur.Opposants;
+import com.montaury.mus.jeu.joueur.*;
 import com.montaury.mus.jeu.tour.phases.dialogue.Gehiago;
 import com.montaury.mus.jeu.tour.phases.dialogue.Hordago;
 import com.montaury.mus.jeu.tour.phases.dialogue.Imido;
@@ -28,7 +25,7 @@ class MancheTest {
     interfaceJoueurZaku = mock(InterfaceJoueur.class);
     joueurEsku = new Joueur("J1", interfaceJoueurEsku);
     joueurZaku = new Joueur("J2", interfaceJoueurZaku);
-    opposants = new Opposants(joueurEsku, joueurZaku);
+    opposants = new Opposants(new Equipe(joueurEsku), new Equipe(joueurZaku));
     manche = new Manche(mock(AffichageEvenementsDeJeu.class));
   }
 

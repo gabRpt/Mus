@@ -2,10 +2,8 @@ package com.montaury.mus.jeu.tour.phases;
 
 import com.montaury.mus.jeu.carte.Carte;
 import com.montaury.mus.jeu.carte.Defausse;
-import com.montaury.mus.jeu.joueur.AffichageConsoleEvenementsDeJeu;
-import com.montaury.mus.jeu.joueur.InterfaceJoueur;
-import com.montaury.mus.jeu.joueur.Joueur;
-import com.montaury.mus.jeu.joueur.Opposants;
+import com.montaury.mus.jeu.joueur.*;
+
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +25,7 @@ class MusTest {
     interfaceJoueurZaku = mock(InterfaceJoueur.class);
     joueurEsku = new Joueur("J1", interfaceJoueurEsku);
     joueurZaku = new Joueur("J2", interfaceJoueurZaku);
-    opposants = new Opposants(joueurEsku, joueurZaku);
+    opposants = new Opposants(new Equipe(joueurEsku), new Equipe(joueurZaku));
   }
 
   @Test

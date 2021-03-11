@@ -1,6 +1,7 @@
 package com.montaury.mus.jeu.tour.phases;
 
 import com.montaury.mus.jeu.carte.Carte;
+import com.montaury.mus.jeu.joueur.Equipe;
 import com.montaury.mus.jeu.joueur.Joueur;
 import com.montaury.mus.jeu.joueur.Opposants;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,8 @@ class FauxJeuTest {
   @Test
   void ne_doit_pas_se_derouler_si_un_seul_des_joueurs_a_le_jeu() {
     Opposants opposants = new Opposants(
-      unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE)),
-      unJoueurAvec(main(Carte.VALET_PIECE, Carte.CAVALIER_PIECE, Carte.ROI_BATON, Carte.AS_PIECE))
+      new Equipe(unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE))),
+      new Equipe(unJoueurAvec(main(Carte.VALET_PIECE, Carte.CAVALIER_PIECE, Carte.ROI_BATON, Carte.AS_PIECE)))
     );
 
     boolean peutSeDerouler = new FauxJeu().peutSeDerouler(opposants);
@@ -38,8 +39,8 @@ class FauxJeuTest {
   void devrait_faire_gagner_le_joueur_ayant_le_plus_grand_nombre_de_points() {
     Joueur joueurZaku = unJoueurAvec(main(Carte.VALET_PIECE, Carte.SIX_PIECE, Carte.QUATRE_BATON, Carte.ROI_COUPE));
     Opposants opposants = new Opposants(
-      unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE)),
-      joueurZaku
+      new Equipe(unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE))),
+      new Equipe(joueurZaku)
     );
 
     Joueur vainqueur = new FauxJeu().meilleurParmi(opposants);
@@ -51,8 +52,8 @@ class FauxJeuTest {
   void devrait_faire_gagner_le_joueur_esku_en_cas_d_egalite() {
     Joueur joueurEsku = unJoueurAvec(main(Carte.AS_BATON, Carte.QUATRE_PIECE, Carte.VALET_BATON, Carte.SIX_COUPE));
     Opposants opposants = new Opposants(
-      joueurEsku,
-      unJoueurAvec(main(Carte.VALET_PIECE, Carte.SIX_PIECE, Carte.QUATRE_BATON, Carte.AS_PIECE))
+      new Equipe(joueurEsku),
+      new Equipe(unJoueurAvec(main(Carte.VALET_PIECE, Carte.SIX_PIECE, Carte.QUATRE_BATON, Carte.AS_PIECE)))
     );
 
     Joueur vainqueur = new FauxJeu().meilleurParmi(opposants);
