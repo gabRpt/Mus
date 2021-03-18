@@ -16,7 +16,7 @@ class PetitTest {
     Joueur joueurEsku = unJoueurAvec(main(Carte.DEUX_PIECE, Carte.CINQ_PIECE, Carte.SEPT_BATON, Carte.AS_COUPE));
     Joueur joueurZaku = unJoueurAvec(main(Carte.DEUX_BATON, Carte.TROIS_PIECE, Carte.CAVALIER_BATON, Carte.SIX_PIECE));
 
-    Joueur vainqueur = new Petit().meilleurParmi(new Opposants(joueurEsku, joueurZaku));
+    Joueur vainqueur = new Petit().meilleurParmi(new Opposants(new Equipe(joueurEsku), new Equipe(joueurZaku)));
 
     assertThat(vainqueur).isEqualTo(joueurEsku);
   }
