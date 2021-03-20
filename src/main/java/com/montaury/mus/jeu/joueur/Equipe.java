@@ -1,13 +1,15 @@
 package com.montaury.mus.jeu.joueur;
 
-public class Equipe {
-    private final Joueur joueurA;
+import java.util.List;
 
-    public Equipe(Joueur joueurA) {
-        this.joueurA = joueurA;
+public class Equipe {
+    public final List<Joueur> joueurs;
+
+    public Equipe(List<Joueur> joueurs) {
+        this.joueurs = joueurs;
     }
 
-    public Joueur getJoueurA() {
-        return joueurA;
+    public Equipe(Joueur joueur){
+        this(List.of(joueur));
     }
 }
