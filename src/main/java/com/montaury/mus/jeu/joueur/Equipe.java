@@ -1,9 +1,13 @@
 package com.montaury.mus.jeu.joueur;
 
 public class Equipe {
-    public final Joueur joueur;
+    private final Joueur joueurA;
 
-    public Equipe(Joueur joueur) {
-        this.joueur = joueur;
+    public Equipe(Joueur joueurA) {
+        this.joueurA = joueurA;
+    }
+
+    public Joueur getJoueurA() {
+        return joueurA;
     }
 }
