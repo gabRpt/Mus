@@ -4,12 +4,15 @@ import java.util.List;
 
 public class Equipe {
     public final List<Joueur> joueurs;
+    public String nom;
 
-    public Equipe(List<Joueur> joueurs) {
+    public Equipe(List<Joueur> joueurs, String nom) {
         this.joueurs = joueurs;
+        this.nom = nom;
     }
 
     public Equipe(Joueur joueur){
-        this(List.of(joueur));
+        joueurs = List.of(joueur);
+        nom = null;
     }
 }

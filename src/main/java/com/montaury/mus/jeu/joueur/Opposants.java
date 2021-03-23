@@ -7,8 +7,8 @@ import java.util.List;
 public class Opposants {
   private Joueur joueurEsku;
   private Joueur joueurZaku;
-  private List<Equipe> listeEquipe = new ArrayList<Equipe>();
-  private LinkedList<Joueur> listeJoueur = new LinkedList<Joueur>();
+  private List<Equipe> listeEquipe = new ArrayList<>();
+  private LinkedList<Joueur> listeJoueur = new LinkedList<>();
 
   public Opposants(Equipe equipeA, Equipe equipeB) {
     listeEquipe.add(equipeA);
