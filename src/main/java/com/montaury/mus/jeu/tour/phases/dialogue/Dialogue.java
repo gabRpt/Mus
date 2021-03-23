@@ -13,8 +13,11 @@ public class Dialogue {
   private final List<ChoixJoueur> choix = new ArrayList<>();
 
   public final DialogueTermine derouler(AffichageEvenementsDeJeu affichage, Opposants opposants) {
-    Iterator<Joueur> iteratorJoueur = opposants.itererDansLOrdre();
+    Iterator<Joueur> iteratorJoueur = opposants.dansLOrdre().iterator();
     do {
+      if(!iteratorJoueur.hasNext()){
+        iteratorJoueur = opposants.dansLOrdre().iterator();
+      }
       Joueur parlant = iteratorJoueur.next();
       Choix choixJoueur = parlant.interfaceJoueur.faireChoixParmi(prochainsChoixPossibles());
       affichage.choixFait(parlant, choixJoueur);
