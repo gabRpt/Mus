@@ -78,7 +78,7 @@ public class Manche {
     public Optional<Integer> pointsVaincu() {
       return vainqueur().isEmpty() ?
         Optional.empty() :
-        scoreParJoueur.values().stream().filter(points -> points < POINTS_POUR_TERMINER_MANCHE).findAny();
+        scoreParEquipe.values().stream().filter(points -> points < POINTS_POUR_TERMINER_MANCHE).findAny();
     }
   }
 

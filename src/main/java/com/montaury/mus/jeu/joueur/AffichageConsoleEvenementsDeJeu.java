@@ -26,7 +26,7 @@ public class AffichageConsoleEvenementsDeJeu implements AffichageEvenementsDeJeu
   @Override
   public void mancheTerminee(Partie.Score score) {
     println("Manche terminée");
-    score.resultatManches().forEach(manche -> println("Vainqueur : " + manche.vainqueur().nom() + ", score du perdant : " + manche.pointsVaincu()));
+    score.resultatManches().forEach(manche -> println("Vainqueur : équipe " + manche.vainqueur().getEquipe().nom + ", score du perdant : " + manche.pointsVaincu()));
   }
 
   @Override
@@ -40,7 +40,6 @@ public class AffichageConsoleEvenementsDeJeu implements AffichageEvenementsDeJeu
     opposants.dansLOrdre().forEach(this::afficherMain);
       score.scoreParEquipe().forEach((key, value) -> println("Score équipe " + key.nom + ": " + value));
       println();
-
   }
 
   @Override
