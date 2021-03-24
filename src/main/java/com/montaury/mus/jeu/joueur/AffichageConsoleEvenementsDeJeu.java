@@ -38,8 +38,9 @@ public class AffichageConsoleEvenementsDeJeu implements AffichageEvenementsDeJeu
   public void tourTermine(Opposants opposants, Manche.Score score) {
     println("Tour terminé");
     opposants.dansLOrdre().forEach(this::afficherMain);
-    score.scoreParJoueur().forEach((key, value) -> println("Score " + key.nom() + ": " + value));
-    println();
+      score.scoreParEquipe().forEach((key, value) -> println("Score équipe " + key.nom + ": " + value));
+      println();
+
   }
 
   @Override

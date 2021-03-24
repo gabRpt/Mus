@@ -25,7 +25,10 @@ public class Mus {
     joueursEquipe2.add(Joueur.ordinateur());
     joueursEquipe2.add(Joueur.ordinateur());
 
-    Partie.Resultat resultat = partie.jouer(new Opposants(new Equipe(joueursEquipe1,"Equipe 1"), new Equipe(joueursEquipe2,"Equipe 2")));
+    Equipe e1 = new Equipe(joueursEquipe1,COULEUR_BLEU + "Bleu" + COULEUR_RESET);
+    Equipe e2 = new Equipe(joueursEquipe2,COULEUR_ROUGE + "Rouge" + COULEUR_RESET);
+
+    Partie.Resultat resultat = partie.jouer(new Opposants(e1,e2));
 
     System.out.println("Le vainqueur de la partie est " + resultat.vainqueur().nom());
   }

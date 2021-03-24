@@ -9,10 +9,18 @@ public class Equipe {
     public Equipe(List<Joueur> joueurs, String nom) {
         this.joueurs = joueurs;
         this.nom = nom;
+
+        for (Joueur j: joueurs) {
+            j.setEquipe(this);
+        }
     }
 
     public Equipe(Joueur joueur){
         joueurs = List.of(joueur);
         nom = null;
+    }
+
+    public List<Joueur> getJoueurs(){
+        return joueurs;
     }
 }

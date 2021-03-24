@@ -1,6 +1,7 @@
 package com.montaury.mus.jeu.joueur;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -19,7 +20,6 @@ public class Opposants {
       listeJoueur.add(equipeA.joueurs.get(i));
       listeJoueur.add(equipeB.joueurs.get(i));
     }
-
     joueurEsku = listeJoueur.getFirst();
     joueurZaku = listeJoueur.getLast();
   }
@@ -42,4 +42,5 @@ public class Opposants {
     return listeJoueur;
   }
 
+  public List<Equipe> getListeEquipe() {return listeEquipe;}
 }

@@ -3,11 +3,10 @@ package com.montaury.mus.jeu.tour.phases.dialogue;
 import com.montaury.mus.jeu.joueur.AffichageEvenementsDeJeu;
 import com.montaury.mus.jeu.joueur.Joueur;
 import com.montaury.mus.jeu.joueur.Opposants;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
-import static com.montaury.mus.jeu.tour.phases.dialogue.TypeChoix.PASO;
+import java.util.*;
+
+import static com.montaury.mus.jeu.tour.phases.dialogue.TypeChoix.*;
 
 public class Dialogue {
   private final List<ChoixJoueur> choix = new ArrayList<>();

@@ -16,6 +16,8 @@ public class Joueur {
   public final InterfaceJoueur interfaceJoueur;
   private final Main main = Main.vide();
 
+  private Equipe equipe;
+
   public Joueur(String nom, InterfaceJoueur interfaceJoueur) {
     this.nom = nom;
     this.interfaceJoueur = interfaceJoueur;
@@ -32,5 +34,13 @@ public class Joueur {
   public void donnerCartes(List<Carte> cartes) {
     main.ajouter(cartes);
     interfaceJoueur.nouvelleMain(main);
+  }
+
+  public Equipe getEquipe() {
+    return equipe;
+  }
+
+  public void setEquipe(Equipe equipe) {
+    this.equipe = equipe;
   }
 }

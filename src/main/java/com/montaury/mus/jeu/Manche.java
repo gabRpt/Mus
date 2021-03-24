@@ -1,10 +1,12 @@
 package com.montaury.mus.jeu;
 
 import com.montaury.mus.jeu.joueur.AffichageEvenementsDeJeu;
+import com.montaury.mus.jeu.joueur.Equipe;
 import com.montaury.mus.jeu.joueur.Joueur;
 import com.montaury.mus.jeu.joueur.Opposants;
 import com.montaury.mus.jeu.tour.Tour;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Optional;
 
@@ -30,14 +32,33 @@ public class Manche {
     private static final int POINTS_POUR_TERMINER_MANCHE = 40;
 
     private final Map<Joueur, Integer> scoreParJoueur = new HashMap<>();
+    private final Map<Equipe, Integer> scoreParEquipe = new HashMap<>();
 
     public Score(Opposants opposants) {
-      scoreParJoueur.put(opposants.joueurEsku(), 0);
-      scoreParJoueur.put(opposants.joueurZaku(), 0);
+      for(int i=0 ; i<opposants.dansLOrdre().size(); i++){
+        this.scoreParJoueur.put(opposants.dansLOrdre().get(i), 0); //Tous les joueurs
+      }
+      for(int i=0 ; i<opposants.getListeEquipe().size() ;i++){
+        this.scoreParEquipe.put(opposants.getListeEquipe().get(i),0); //Ajout score par équipes
+      }
     }
 
     public Map<Joueur, Integer> scoreParJoueur() {
       return scoreParJoueur;
+    }
+
+    public Map<Equipe, Integer> scoreParEquipe(){
+      Joueur joueurCourant;
+      Equipe equipeJoueurCourant;
+
+      for (Map.Entry<Joueur, Integer> entry : scoreParJoueur.entrySet()) {
+        joueurCourant = entry.getKey();
+        equipeJoueurCourant = joueurCourant.getEquipe();
+
+        scoreParEquipe.put(equipeJoueurCourant, scoreParEquipe.get(equipeJoueurCourant) +
+                                                scoreParJoueur.get(joueurCourant));
+      }
+      return scoreParEquipe;
     }
 
     public void scorer(Joueur joueur, int points) {
