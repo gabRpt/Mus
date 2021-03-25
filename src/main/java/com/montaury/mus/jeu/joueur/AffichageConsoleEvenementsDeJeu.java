@@ -44,7 +44,7 @@ public class AffichageConsoleEvenementsDeJeu implements AffichageEvenementsDeJeu
 
   @Override
   public void choixFait(Joueur joueur, Choix choix) {
-    println(joueur.nom() + ": " + description(choix));
+      println(joueur.nom() + " de l'équipe "+ joueur.getEquipe().nom + " : " + description(choix));
   }
 
   private static String description(Choix choix) {

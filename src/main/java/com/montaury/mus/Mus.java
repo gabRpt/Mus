@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Mus {
+  public static final String COULEUR_ROUGE = "\u001B[31m";
+  public static final String COULEUR_BLEU = "\u001B[34m";
+  public static final String COULEUR_RESET = "\u001B[0m";
+
   public static void main(String[] args) {
     System.out.print("Entrez votre nom: ");
     String nomJoueur = new Scanner(System.in).next();
